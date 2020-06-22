@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h1>Template Page: {{$page.contact.heading}}</h1>
+    <h1>Template Page: {{$page.extra.heading}}</h1>
     <c-nav></c-nav>
   </div>
 </template>
 
 <page-query>
 query($id: ID!){
-  contact(id:$id){
+  extra(id:$id){
     heading
     locale
     path

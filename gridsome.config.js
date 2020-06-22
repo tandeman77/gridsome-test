@@ -26,6 +26,24 @@ module.exports = {
       },
     },
     {
+      use: "@gridsome/source-filesystem",
+      options: {
+        typeName: "Extra",
+        baseDir: "./content/extra",
+        pathPrefix: "/extra",
+        path: "**/*.md",
+      },
+    },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        typeName: "Extra",
+        baseDir: "./content/th/extra",
+        pathPrefix: "/th/extra",
+        path: "**/*.md",
+      },
+    },
+    {
       use: "gridsome-plugin-i18n",
       options: {
         locales: [

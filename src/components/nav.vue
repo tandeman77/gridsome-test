@@ -14,7 +14,7 @@
         <g-link :to="$tp('/contact')">contact</g-link>
       </li>
       <li>
-        <g-link :to="$tp('/real-contact')">real contact</g-link>
+        <g-link :to="$tp('/extra')">extra template</g-link>
       </li>
     </ul>
     <hr />

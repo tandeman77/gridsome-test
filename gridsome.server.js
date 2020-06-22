@@ -14,18 +14,12 @@ module.exports = function(api) {
     // Use the Pages API here: https://gridsome.org/docs/pages-api/
   });
 
+  //contact page
   api.createPages(async ({ graphql, createPage }) => {
-    // Use the Pages API here: https://gridsome.org/docs/pages-api
     const { data } = await graphql(`
       query($locale: String) {
         allContact(filter: { locale: { eq: $locale } }) {
           edges {
-            previous {
-              id
-            }
-            next {
-              id
-            }
             node {
               id
               locale
@@ -42,6 +36,40 @@ module.exports = function(api) {
       createPage({
         path: element.node.path,
         component: "./src/templates/ContactTemplate.vue",
+        queryVariables: {
+          locale: element.node.locale,
+          id: element.node.id,
+        },
+        context: {
+          locale: element.node.locale,
+        },
+      });
+    });
+  });
+
+  //extra page
+  api.createPages(async ({ graphql, createPage }) => {
+    // Use the Pages API here: https://gridsome.org/docs/pages-api
+    const { data } = await graphql(`
+      query($locale: String) {
+        allExtra(filter: { locale: { eq: $locale } }) {
+          edges {
+            node {
+              id
+              locale
+              path
+            }
+          }
+        }
+      }
+    `);
+    data.allExtra.edges.forEach(function(element) {
+      console.log(element.node.id);
+      console.log(element.node.locale);
+      console.log(element.node.path);
+      createPage({
+        path: element.node.path,
+        component: "./src/templates/ExtraTemplate.vue",
         queryVariables: {
           locale: element.node.locale,
           id: element.node.id,

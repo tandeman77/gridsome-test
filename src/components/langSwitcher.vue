@@ -23,8 +23,7 @@ export default {
       });
     }
   },
-  created() {
-    console.log(`current store locale is ${this.currentLanguage}`);
+  mounted() {
     console.log(`changing locale to ${this.$i18n.locale}`);
   }
 };

@@ -9,6 +9,9 @@
     "heading": "product th"
   },
   "contact": {
-    "heading": "contact en"
+    "heading": "contact th"
+  },
+  "extra": {
+    "heading": "extra th"
   }
 }

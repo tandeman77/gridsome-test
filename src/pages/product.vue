@@ -11,6 +11,9 @@ import cNav from "~/components/nav.vue";
 export default {
   components: {
     cNav
+  },
+  mounted() {
+    console.log(`current page locale to ${this.$i18n.locale}`);
   }
 };
 </script>
