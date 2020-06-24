@@ -1,8 +1,10 @@
 <template>
-  <div>
-    <h1>Template Page: {{$page.contact.heading}}</h1>
-    <c-nav></c-nav>
-  </div>
+  <layout>
+    <div>
+      <h1>Template Page: {{$page.contact.heading}}</h1>
+      <c-nav></c-nav>
+    </div>
+  </layout>
 </template>
 
 <page-query>
@@ -21,9 +23,7 @@ export default {
   components: {
     cNav
   },
-  mounted() {
-    console.log(`current page locale to ${this.$i18n.locale}`);
-  }
+  mounted() {}
 };
 </script>
 

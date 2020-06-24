@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Current lang: {{$i18n.locale}}</h2>
+    <h2>Current lang: {{currentLanguage}}</h2>
     <select name="langSwitcher" id="langS" v-model="currentLanguage" @change="changeLanguage()">
       <option v-for="lang in $i18n.availableLocales" :key="lang" :value="lang">{{lang}}</option>
     </select>
@@ -11,21 +11,22 @@
 export default {
   data() {
     return {
-      currentLanguage: this.$i18n.locale
+      currentLanguage: this.$store.state.currentLanguage
     };
   },
   methods: {
     changeLanguage() {
-      console.log(`changing language to ${this.currentLanguage}`);
+      this.$store.commit("changeLanguage", this.currentLanguage);
       this.$i18n.locale = this.currentLanguage;
+      console.log(
+        `changed language. i18n lang is now: ${this.$i18n.locale}, and current store locale is ${this.$store.state.currentLanguage}`
+      );
       this.$router.push({
         path: this.$tp(this.$route.path, this.currentLanguage, true)
       });
     }
   },
-  mounted() {
-    console.log(`changing locale to ${this.$i18n.locale}`);
-  }
+  mounted() {}
 };
 </script>
 
